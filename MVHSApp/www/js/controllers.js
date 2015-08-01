@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngMaterial'])
+angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'])
 
 .controller('DashCtrl', function ($scope) {})
 

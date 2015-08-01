@@ -1,9 +1,14 @@
 <ion-view view-title="Account">
-  <ion-content>
-    <ion-list>
-        <ion-item ng-repeat="row in data.results">
-            <p>{{row.name}}</p>
-        </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+        <ion-list>
+            <ion-alpha-scroll ng-model="data.results" key="name">
+                <!--                <ion-item ng-repeat="row in data.results">-->
+                <div>
+                    <h2>{{item.name}}</h2>
+                    <p>{{item.subject}}</p>
+                </div>
+                <!--                </ion-item>-->
+            </ion-alpha-scroll>
+        </ion-list>
+    </ion-content>
 </ion-view>
