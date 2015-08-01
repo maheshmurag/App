@@ -61,6 +61,21 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial'])
         enableFriends: true
     };
 
+
+$scope.searchText = "";
+$scope.searchQuery = [];
+
+
+
+    $scope.queryMatches = function(query){
+        var arr = [];
+        for(var i = 0; i < $scope.data.results.length; i++){
+            if($scope.data.results[i].name.toLowerCase().indexOf((""+query).toLowerCase())>-1)
+                arr.push($scope.data.results[i].name+"");
+        }
+        $scope.searchQuery = arr;
+    };
+
     $scope.data = {
         "offset": 0,
         "title": "Monta Vista High School: All Staff List",

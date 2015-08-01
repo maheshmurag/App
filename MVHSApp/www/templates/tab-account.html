@@ -1,9 +1,18 @@
 <ion-view view-title="Account">
-  <ion-content>
-    <ion-list>
-        <ion-item ng-repeat="row in data.results">
-            <p>{{row.name}}</p>
-        </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+        <ion-list>
+            <form ng-submit="$event.preventDefault()">
+                <md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder = "Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
+                    <md-item-template>
+                        <span md-highlight-text="searchText">{{result}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        No matches found.
+                    </md-not-found>
+                </md-autocomplete>
+                <ion-item ng-repeat="row in data.results">
+                    <p>{{row.name}}</p>
+                </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
