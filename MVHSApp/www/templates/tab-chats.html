@@ -1,6 +1,27 @@
+
+<div ng-controller="ChatsCtrl" class="sample" layout="column">
+
+    <br>
+    <br>
+    <br>
+    <md-content class="md-padding">
+        <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+            <md-tab ng-repeat="tab in tabs" ng-disabled="tab.disabled" label="{{tab.title}}">
+                <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+                    <div ng-bind="tab.content"></div>
+                    <br/>
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+<!--
 <ion-view view-title="Chats">
     <ion-content>
         <ion-list>
+            <ion-item></ion-item>
+
+
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
                 <img ng-src="{{chat.face}}">
                 <h2>{{chat.name}}</h2>
@@ -14,3 +35,4 @@
         </ion-list>
     </ion-content>
 </ion-view>
+-->

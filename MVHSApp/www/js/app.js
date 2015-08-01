@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 })
 
 .config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
-    $mdThemingProvider.theme('default').primaryPalette('purple');
+    $mdThemingProvider.theme('default').primaryPalette('purple').accentPalette('indigo');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
