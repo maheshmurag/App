@@ -2,7 +2,7 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
 
 .controller('DashCtrl', function ($scope) {})
 
-.controller('ChatsCtrl', function ($scope, Chats) {
+.controller('ChatsCtrl', function ($scope, Chats, $ionicTabsDelegate) {
         //$scope.$on('$ionicView.enter', function(e) {
         //});
 
@@ -10,6 +10,18 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
         $scope.remove = function (chat) {
             Chats.remove(chat);
         };
+
+        $scope.onSwipeRight = function (index) {
+            $scope.selectedIndex = 3;//Math.min($scope.data.selectedIndex + 1, tabs.length - 1);
+        };
+//
+//        $scope.$watch('selectedIndex', function (current, old) {
+//            $ionicTabsDelegate.select(current);
+//        });
+//
+//        $scope.onSwipeLeft = function (index) {
+//            alert("Swiped left at index " + index);
+//        };
 
         var tabs = [
                 {
@@ -68,18 +80,21 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
     $scope.queryMatches = function (query) {
         var arr = [];
         for (var i = 0; i < $scope.data.results.length; i++) {
-            if ($scope.data.results[i].name.toLowerCase().indexOf(("" + query).toLowerCase()) > -1)
+            var fname = $scope.data.results[i].firstName;
+            var lname = $scope.data.results[i].lastName;
+            if (fname.toLowerCase().indexOf(("" + query).toLowerCase()) == 0 ||
+                lname.toLowerCase().indexOf(("" + query).toLowerCase()) == 0)
                 arr.push($scope.data.results[i].name + "");
         }
         $scope.searchQuery = arr;
     };
     $scope.showDivider = function (index) {
-//        console.log("called:"+index)
-        if(index == 0 ) return true;
+        //        console.log("called:"+index)
+        if (index == 0) return true;
         if (index != $scope.data.results.length - 1 && index > 0) {
 
-            if($scope.data.results[index].lastName.charAt(0) != $scope.data.results[index - 1].lastName.charAt(0)){
-//                console.log("returning true for index " + index);
+            if ($scope.data.results[index].lastName.charAt(0) != $scope.data.results[index - 1].lastName.charAt(0)) {
+                //                console.log("returning true for index " + index);
                 return true;
             }
 
@@ -359,9 +374,9 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
                 "subject": "Science",
                 "number": "1(408)366-7600 (x8897)",
                 "email/_text": "pamela_chow@fuhsd.org",
-                "firstName": "Pam Chow AP",
-                "lastName": "Bio",
-                "name": "Pam Chow AP Bio",
+                "firstName": "Pam",
+                "lastName": "Chow",
+                "name": "Pam Chow",
                 "picture/_source": "/uimg/image/1126271346116/1126505882599/1389424857146.jpg",
                 "email": "mailto:pamela_chow@fuhsd.org",
                 "picture": "http://www.mvhs.fuhsd.org/uimg/image/1126271346116/1126505882599/1389424857146.jpg"
