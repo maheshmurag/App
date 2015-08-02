@@ -5,18 +5,16 @@
                 <form ng-submit="$event.preventDefault()">
                     <md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder="Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
                         <md-item-template>
-                            <span md-highlight-text="searchText">{{result}}</span>
+                            <span md-highlight-flags="i" md-highlight-text="searchText">{{result}}</span>
                         </md-item-template>
                         <md-not-found>
                             No matches found.
                         </md-not-found>
                     </md-autocomplete>
-
                     <ion-item ng-repeat="row in data.results">
                         <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
 <!--                        <md-divider md-inset ng-show="showDivider($index)"></md-divider>-->
                     </ion-item>
-
                 </form>
             </ion-item>
         </ion-list>
