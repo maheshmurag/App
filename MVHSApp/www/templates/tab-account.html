@@ -1,7 +1,9 @@
 <ion-view view-title="Account">
-    <ion-content>
-        <ion-list>
-            <ion-item>
+    <md-content>
+        <br>
+        <br>
+        <md-list>
+            <md-list-item>
                 <form ng-submit="$event.preventDefault()">
                     <md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder="Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
                         <md-item-template>
@@ -11,23 +13,24 @@
                             No matches found.
                         </md-not-found>
                     </md-autocomplete>
-                    <ion-item ng-repeat="row in data.results">
-                        <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
-<!--                        <md-divider md-inset ng-show="showDivider($index)"></md-divider>-->
-                    </ion-item>
                 </form>
-            </ion-item>
-        </ion-list>
-<!--
-        <ion-list>
-            <ion-alpha-scroll ng-model="data.results" key="lastName">
-                <div>
-                    <h2>{{item.name}}</h2>
-                    <p>{{item.subject}}</p>
-                </div>
-            </ion-alpha-scroll>
+            </md-list-item>
+            <ion-list>
+                <ion-alpha-scroll ng-model="data.results" key="lastName">
+                    <div>
+                        <h2 ng-style="showDivider($index) && {'font-weight':'bold'}">{{item.name}}</h2>
+                        <p>{{item.subject}}</p>
+                    </div>
+                </ion-alpha-scroll>
 
-        </ion-list>
+            </ion-list>
+<!--
+
+            <md-list-item ng-repeat="row in data.results">
+                <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
+                                        <md-divider md-inset ng-show="showDivider($index)"></md-divider>
+            </md-list-item>
 -->
-    </ion-content>
+        </md-list>
+    </md-content>
 </ion-view>
