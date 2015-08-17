@@ -63,7 +63,7 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
         $scope.chat = Chats.get($stateParams.chatId);
     })
 
-.controller('AccountCtrl', function ($scope) {
+.controller('TeacherListCtrl', function ($scope) {
     $scope.data = {
         "offset": 0,
         "title": "Monta Vista High School: All Staff List",
