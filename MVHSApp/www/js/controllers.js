@@ -1800,6 +1800,9 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
     $scope.settings = {
         enableFriends: true
     };
+    $scope.Alert = function(str){
+        alert(str);
+    }
     $scope.$on('$ionicView.enter', function(e) {
         $scope.filteredResults = $scope.data.results;
     });
