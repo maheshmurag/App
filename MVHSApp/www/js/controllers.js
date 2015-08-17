@@ -59,15 +59,22 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
             selected = tabs[current];
         });
     })
-    .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-        $scope.chat = Chats.get($stateParams.chatId);
+    .controller('TeacherDetailCtrl', function ($scope, $stateParams, TeachersData) {
+        $scope.teacherItem = TeachersData.get($stateParams.teacherId);
     })
 
-.controller('TeacherListCtrl', function ($scope, TeachersData) {
+.controller('TeacherListCtrl', function ($scope, $state, TeachersData) {
     $scope.data = TeachersData.all();
     $scope.settings = {
         enableFriends: true
     };
+
+    $scope.goToDetail = function(index){
+        $state.go('tab.teacher-detail', {
+            teacherId: index
+        });
+    }
+
     $scope.Alert = function(str){
         alert(str);
     }
