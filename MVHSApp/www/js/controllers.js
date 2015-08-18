@@ -12,45 +12,11 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
         };
 
         $scope.onSwipeRight = function (index) {
-            $scope.selectedIndex = 3;//Math.min($scope.data.selectedIndex + 1, tabs.length - 1);
+            $scope.selectedIndex = 3;
         };
-//
-//        $scope.$watch('selectedIndex', function (current, old) {
-//            $ionicTabsDelegate.select(current);
-//        });
-//
-//        $scope.onSwipeLeft = function (index) {
-//            alert("Swiped left at index " + index);
-//        };
 
-        var tabs = [
-                {
-                    title: 'Mon',
-                    content: "Monday's Schedule",
-                    disabled: false
-                },
-                {
-                    title: 'Tue',
-                    content: "Tuesday's Schedule",
-                    disabled: false
-                },
-                {
-                    title: 'Wed',
-                    content: "Wednesday's Schedule",
-                    disabled: false
-                },
-                {
-                    title: 'Thu',
-                    content: "Thursday's Schedule",
-                    disabled: false
-                },
-                {
-                    title: 'Fri',
-                    content: "Friday's Schedule",
-                    disabled: false
-                }
-    ],
-            selected = null,
+        var tabs = Chats.all();
+        var selected = null,
             previous = null;
         $scope.tabs = tabs;
         $scope.selectedIndex = 2;
@@ -62,13 +28,11 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
     .controller('TeacherDetailCtrl', function ($scope, $stateParams, TeachersData) {
         $scope.teacherItem = TeachersData.get($stateParams.teacherId);
     })
-
 .controller('TeacherListCtrl', function ($scope, $state, TeachersData) {
     $scope.data = TeachersData.all();
     $scope.settings = {
         enableFriends: true
     };
-
     $scope.goToDetail = function(index){
         $state.go('tab.teacher-detail', {
             teacherId: index
