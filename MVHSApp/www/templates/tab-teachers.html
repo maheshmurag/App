@@ -2,14 +2,16 @@
     <ion-content>
         <br>
         <br>
-            <ion-list>
-                <ion-item ng-repeat="row in data.results" ng-click="goToDetail($index)">
-                    <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
-                </ion-item>
-            </ion-list>
+        <ion-list>
+            <ion-item ng-repeat="row in data.results" ng-click="goToDetail($index)">
+                <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
+            </ion-item>
+        </ion-list>
     </ion-content>
     <md-content>
-        <br><br><br>
+        <br>
+        <br>
+        <br>
         <form ng-submit="$event.preventDefault()">
             <md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder="Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
                 <md-item-template>
