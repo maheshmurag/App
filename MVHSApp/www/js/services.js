@@ -1783,21 +1783,15 @@ angular.module('starter.services', [])
             }
         ]
         };
-
         return {
             all: function () {
                 return teachers;
             },
             remove: function (teacherObj) {
-                teachers.splice(teachers.indexOf(teacherObj), 1);
+                teachers.results.splice(teachers.results.indexOf(teacherObj), 1);
             },
             get: function (teacherId) {
-                for (var i = 0; i < teachers.length; i++) {
-                    if (teachers[i].id === parseInt(teacherId)) {
-                        return teachers[i];
-                    }
-                }
-                return null;
+                return teachers.results[teacherId];
             }
         };
     });
