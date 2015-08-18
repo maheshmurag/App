@@ -67,7 +67,7 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
         }
         $scope.lastQuery = query;
         $scope.filteredResults = tmp;
-        console.log("Saagar: " + $scope.filteredResults.length)
+//        console.log("Saagar: " + $scope.filteredResults.length)
         $scope.searchQuery = arr;
     };
     $scope.showDivider = function (index) {

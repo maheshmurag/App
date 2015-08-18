@@ -1,8 +1,15 @@
 <ion-view view-title="Teachers">
+    <ion-content>
+        <br>
+        <br>
+            <ion-list>
+                <ion-item ng-repeat="row in data.results" ng-click="goToDetail($index)">
+                    <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
+                </ion-item>
+            </ion-list>
+    </ion-content>
     <md-content>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         <form ng-submit="$event.preventDefault()">
             <md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder="Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
                 <md-item-template>
@@ -13,36 +20,31 @@
                 </md-not-found>
             </md-autocomplete>
         </form>
-        <md-list>
-<!--
-            <md-list-item>
-                <form ng-submit="$event.preventDefault()">
-                    <md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder="Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
-                        <md-item-template>
-                            <span md-highlight-flags="i" md-highlight-text="searchText">{{result}}</span>
-                        </md-item-template>
-                        <md-not-found>
-                            No matches found.
-                        </md-not-found>
-                    </md-autocomplete>
-                </form>
-            </md-list-item>
+        <!--        <md-list>-->
+        <!--
+<md-list-item>
+<form ng-submit="$event.preventDefault()">
+<md-autocomplete md-items="result in searchQuery" md-item-text="result" placeholder="Teacher Name" md-search-text="searchText" md-search-text-change="queryMatches(searchText)">
+<md-item-template>
+<span md-highlight-flags="i" md-highlight-text="searchText">{{result}}</span>
+</md-item-template>
+<md-not-found>
+No matches found.
+</md-not-found>
+</md-autocomplete>
+</form>
+</md-list-item>
 -->
-<!--
-            <ion-list>
-                <ion-alpha-scroll ng-model="data.results" key="lastName">
-                    <div>
-                        <h2 ng-style="showDivider($index) && {'font-weight':'bold'}">{{item.name}}</h2>
-                        <p>{{item.subject}}</p>
-                        <button class="button"  href="#/tab/teachers/{{item.id}}" ng-click="Alert('#/tab/teachers/{{item.id}}')"></button>
-                    </div>
-                </ion-alpha-scroll>
-            </ion-list>
+        <!--
+<ion-list>
+<ion-alpha-scroll ng-model="data.results" key="lastName">
+<div>
+<h2 ng-style="showDivider($index) && {'font-weight':'bold'}">{{item.name}}</h2>
+<p>{{item.subject}}</p>
+<button class="button"  href="#/tab/teachers/{{item.id}}" ng-click="Alert('#/tab/teachers/{{item.id}}')"></button>
+</div>
+</ion-alpha-scroll>
+</ion-list>
 -->
-            <md-list-item ng-repeat="row in data.results" ng-click="goToDetail($index)">
-                <p ng-style="showDivider($index) && {'font-weight':'bold'}">{{row.name}}</p>
-<!--                                        <md-divider md-inset ng-show="showDivider($index)"></md-divider>-->
-            </md-list-item>
-        </md-list>
     </md-content>
 </ion-view>
