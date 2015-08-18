@@ -2,7 +2,7 @@ angular.module('starter.controllers', ['ionic', 'ngMaterial', 'ion-alpha-scroll'
 
 .controller('DashCtrl', function ($scope) {})
 
-.controller('ChatsCtrl', function ($scope, Chats, $ionicTabsDelegate) {
+    .controller('ScheduleCtrl', function ($scope, Chats, $ionicTabsDelegate) {
 //        $scope.$on('$ionicView.enter', function(e) {
 //        });
 
